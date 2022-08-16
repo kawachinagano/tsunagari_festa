@@ -1,0 +1,46 @@
+!pip install pulp
+import pulp
+
+# 問題の定義
+problem = pulp.LpProblem(name="Knapsack", sense=pulp.LpMaximize)    #最大値を求める
+
+# 変数の定義
+A = pulp.LpVariable(name = "cho", lowBound = 0, upBound = 1, cat="Integer")    #変数の名前、下限をゼロ、整数値と定義する
+B = pulp.LpVariable(name = "pot", lowBound = 0, upBound = 1, cat="Integer")
+C = pulp.LpVariable(name = "sen", lowBound = 0, upBound = 1, cat="Integer")
+D = pulp.LpVariable(name = "yok", lowBound = 0, upBound = 1, cat="Integer")
+E = pulp.LpVariable(name = "can", lowBound = 0, upBound = 1, cat="Integer")
+F = pulp.LpVariable(name = "gum", lowBound = 0, upBound = 1, cat="Integer")
+G = pulp.LpVariable(name = "don", lowBound = 0, upBound = 1, cat="Integer")
+H = pulp.LpVariable(name = "car", lowBound = 0, upBound = 1, cat="Integer")
+
+# 目的関数
+problem += 9*A + 10*B + 6*C + 4*D + 3*E + 4*F + 8*G + 5*H   #満足度
+
+# 制約条件の定義
+problem += 100*A + 120*B + 90*C + 60*D + 40*E + 90*F + 100*G + 50*H <= 300  #価格
+
+# 解く
+status = problem.solve()
+print(pulp.LpStatus[status])
+
+
+# 結果表示
+print("Result")                          #結果として”Optimal”と表示されればＯＫ
+print("cho:", A.value())
+print("pot:", B.value())
+print("sen:", C.value())
+print("yok:", D.value())
+print("can:", E.value())
+print("gum:", F.value())
+print("don:", G.value())
+print("car:", H.value())
+
+# 満足度　金額　算出
+sat = 9*(A.value()) + 10*(B.value())  + 6*(C.value())  + 4*(D.value())  + 3*(E.value())  + 4*(F.value())  + 8*(G.value())  + 5*(H.value())  
+mon = 100*(A.value()) + 120*(B.value())  + 90*(C.value())  + 60*(D.value())  + 40*(E.value())  + 90*(F.value())  + 100*(G.value())  + 50*(H.value())  
+print("satisfaction",sat)
+print("money",mon)
+
+pythonソース.txt
+pythonソース.txt を表示しています。
