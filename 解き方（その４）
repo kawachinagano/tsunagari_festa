@@ -1,0 +1,76 @@
+#
+#　②：解き方（その４）
+#
+cho_i = 0
+pot_i = 0
+sen_i = 0
+yok_i = 0
+can_i = 0
+gum_i = 0
+don_i = 0
+car_i = 0
+while cho_i < 2 :
+  while pot_i < 2 :
+    while sen_i < 2 :
+      while yok_i < 2 :
+        while can_i < 2 :
+          while gum_i < 2 :
+            while don_i < 2 :
+              while car_i < 2 :
+                sat = (cho_i*9+pot_i*10+sen_i*6+yok_i*4　\
+                       +can_i*3+gum_i*4+don_i*8+car_i*5)
+                mon = (cho_i*100+pot_i*120+sen_i*90+yok_i*60　\
+                      +can_i*40+gum_i*90+don_i*100+car_i*50)
+                if mon <= 300 and sat >= 24 :
+                  print('satisfaction',sat,'money',mon)
+                print(
+                      'cho',cho_i,
+                      'pot',pot_i,
+                      'sen',sen_i,
+                      'yok',yok_i,
+                      'can',can_i,
+                      'gum',gum_i,
+                      'don',don_i,
+                      'car',car_i
+                     )
+                print('*')
+                car_i += 1
+              don_i += 1
+              car_i = 0
+            gum_i += 1
+            don_i = 0
+            car_i = 0
+          can_i += 1
+          gum_i = 0
+          don_i = 0
+          car_i = 0
+        yok_i += 1  
+        can_i = 0
+        gum_i = 0
+        don_i = 0
+        car_i = 0
+      sen_i += 1  
+      yok_i = 0
+      can_i = 0
+      gum_i = 0
+      don_i = 0
+      car_i = 0
+    pot_i += 1  
+    sen_i = 0  
+    yok_i = 0
+    can_i = 0
+    gum_i = 0
+    don_i = 0
+    car_i = 0 
+  cho_i += 1  
+  pot_i = 0  
+  sen_i = 0  
+  yok_i = 0
+  can_i = 0
+  gum_i = 0
+  don_i = 0
+  car_i = 0    
+print('end')
+
+Pythonソース.txt
+Pythonソース.txt を表示しています。
